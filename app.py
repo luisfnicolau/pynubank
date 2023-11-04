@@ -1,5 +1,6 @@
 from pynubank import Nubank, MockHttpClient
 from dotenv import load_dotenv
+from upload_to_firestore import save_to_firestore
 import json
 import os
 
@@ -9,8 +10,8 @@ cpf = os.getenv("CPF")
 password = os.getenv("PASSWORD")
 
 
-# nu = Nubank(MockHttpClient())
-nu = Nubank()
+nu = Nubank(MockHttpClient())
+# nu = Nubank()
 nu.authenticate_with_cert(cpf, password, "./cert.p12")
 
 # Lista de dicionários contendo todas as transações de seu cartão de crédito
@@ -27,4 +28,6 @@ f.close()
 # card_statement_details = nu.get_card_statement_details(card_statements[0])
 
 # Soma de todas as compras
-print(sum([t['amount'] for t in card_statements]))
+# print(sum([t['amount'] for t in card_statements]))
+
+save_to_firestore(card_statements)
