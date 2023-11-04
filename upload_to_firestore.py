@@ -25,6 +25,7 @@ def save_to_firestore(my_list, collection_name=transactions_collection):
     """
     collection_ref = db.collection(collection_name)
     for item in my_list:
+        item["added_to_notion"] = False
         # You can customize the way you save each item here.
         # For this example, we are saving each item as a document with a single field called "value".
         collection_ref.document(item["id"]).set(item)
