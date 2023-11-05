@@ -109,3 +109,7 @@ $ pytest
 ## Contribuindo
 
 Envie sua PR para melhorar esse projeto ! 😋
+
+# Para rodar
+
+$ python3 app.py

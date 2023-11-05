@@ -10,8 +10,8 @@ cpf = os.getenv("CPF")
 password = os.getenv("PASSWORD")
 
 
-nu = Nubank(MockHttpClient())
-# nu = Nubank()
+# nu = Nubank(MockHttpClient())
+nu = Nubank()
 nu.authenticate_with_cert(cpf, password, "./cert.p12")
 
 # Lista de dicionários contendo todas as transações de seu cartão de crédito
